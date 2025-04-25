@@ -4,3 +4,4 @@ dist
 build
 /public
 *.docx
+.env
