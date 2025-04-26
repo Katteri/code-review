@@ -4,7 +4,7 @@ import { BsCloud, BsCloudFill } from "react-icons/bs";
 import { useChat } from "./contexts/ChatContext";
 
 const Header = () => {
-  const { messages, cleanMessages } = useChat();
+  const { cleanMessages } = useChat();
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ const Header = () => {
             />
           )}
         </div>
-        <p className="m-0">AI-assistant</p>
+        <p className="m-0">Code Review</p>
       </Col>
     </Row>
   );

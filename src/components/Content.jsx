@@ -27,7 +27,8 @@ const Content = () => {
   return (
     <Col
       ref={containerRef}
-      className="w-100 h-75 border-bottom border-top bg-light overflow-y-scroll"
+      className="w-100 border-bottom border-top bg-light overflow-y-scroll"
+      style={{height: '71%'}}
     >
       <div className="w-75 my-3 mx-auto d-flex flex-column gap-3">
         {content}

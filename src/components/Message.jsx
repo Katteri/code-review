@@ -20,7 +20,10 @@ const Message = ({ message }) => {
       'border': role === 'assistant',
     });
     const newStyle = {
-      width: "fit-content",
+      whiteSpace: 'pre-wrap',
+      // width: "fit-content",
+      wordBreak: 'break-word', 
+      maxWidth: '70%',
       borderRadius: "16px",
       background: role === 'assistant'? "#F3F4F6" : "black"
     };

@@ -28,7 +28,6 @@
     "file-loader": "^6.2.0",
     "globals": "^16.0.0",
     "html-webpack-plugin": "^5.6.3",
-    "jest": "^29.7.0",
     "postcss": "^8.5.3",
     "postcss-loader": "^8.1.1",
     "react": "^19.1.0",
