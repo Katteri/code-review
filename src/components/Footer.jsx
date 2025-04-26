@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Row, Form, Button, InputGroup } from "react-bootstrap";
 import { useChat } from "./contexts/ChatContext";
 
-
-// if we got no messages then use effect input field in the center
 const Footer = () => {
-  const { input, updateInput, addMessage } = useChat();
+  const { input, updateInput, addMessage, messages } = useChat();
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [messages]);
 
   const handleInput = (e) => {
     updateInput(e.target.value);
@@ -30,11 +33,15 @@ const Footer = () => {
   }
 
   return (
-    <Row className="py-3 px-5 w-100">
+    <Row
+      className="py-3 px-5 w-100 d-flex justify-content-center align-items-center"
+      style={{height: '15%'}}
+    >
       <InputGroup >
         <Form.Control
           placeholder="Write a message..."
           className="py-3 px-4"
+          ref={inputRef}
           value={input}
           onChange={handleInput}
           onKeyPress={handleKeyPress}

@@ -5,17 +5,18 @@ const ChatContext = createContext();
 export const useChat = () => useContext(ChatContext);
 
 export const ChatProvider = ({ children }) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{
+    role: 'assistant',
+    content: 'Hello! How can I help you?'
+  }]);
   const [input, setInput] = useState('');
   
   const addMessage = (newMessage) => {
     setMessages([...messages, newMessage]);
-    console.log(messages);
   };
 
   const cleanMessages = () => {
     setMessages([]);
-    console.log(messages);
   }
 
   const updateInput = (newInput) => {

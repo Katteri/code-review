@@ -10,5 +10,5 @@ const mountNode = document.getElementById('container');
 const root = ReactDOM.createRoot(mountNode);
 
 root.render(
-  <App/>
+  <App />
 );

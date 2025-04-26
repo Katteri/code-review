@@ -7,18 +7,31 @@ const Message = ({ message }) => {
   const [style, setStyle] = useState({});
 
   useEffect(() => {
-    setClasses(cn("py-2", "px-4")); //ms-auto bg-dark text-white" for user
-    // me-auto text-dark for assistant
-    setStyle({
+    const { role } = message;
+
+    const newClasses = cn("py-2", "px-4", {
+      // for role user
+      'ms-auto': role === 'user',
+      'bg-dark': role === 'user',
+      'text-white': role === 'user',
+      // for role assistant
+      'me-auto': role === 'assistant',
+      'text-dark': role === 'assistant',
+      'border': role === 'assistant',
+    });
+    const newStyle = {
       width: "fit-content",
       borderRadius: "16px",
-      background: "#F3F4F6"
-    });
+      background: role === 'assistant'? "#F3F4F6" : "black"
+    };
+
+    setClasses(newClasses);
+    setStyle(newStyle);
   }, [message]);
 
   return (
-    <Row className="py-2 px-4 me-auto text-dark" style={style}>
-      Message
+    <Row className={classes} style={style}>
+      {message.content}
     </Row>
   );
 }
